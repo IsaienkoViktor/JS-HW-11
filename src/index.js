@@ -13,7 +13,7 @@ export class JsonPixabayApi {
     static API = '36975301-73934ce38cce9a2bf3ac84bc9';
 
     constructor() {
-        this.page = null;
+        this.page = 1;
         this.per_page = null;
     }
     fetchFromAPi() {
@@ -22,7 +22,7 @@ export class JsonPixabayApi {
          q: '',
          image_type: 'photo',              
          page: this.page,
-         per_page: 10,         
+         per_page: 40,         
          orientation: 'horizontal',
          safesearch: true,        
          
