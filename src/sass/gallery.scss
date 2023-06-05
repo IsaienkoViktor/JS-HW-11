@@ -11,6 +11,17 @@
     flex-wrap: wrap;
     justify-content: center;
     margin: 50px auto 100px;
+
+    // display: grid;
+    //     max-width: 1140px;
+    //     grid-template-columns: repeat(auto-fit, minmax(auto, auto-fit));
+    //     grid-template-rows: max-content;
+    //     grid-gap: 12px;
+    //     justify-content: center;
+    //     padding: 0;
+    //     list-style: none;
+    //     margin-left: auto;
+    //     margin-right: auto;
 }
 
 a {
