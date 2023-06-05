@@ -6,11 +6,14 @@
 }
 
 .gallery {
-    width: 100%;
+    width: 1440px;
     display: flex;
+    padding-left: 15px;
+    padding-right: 15px;
     flex-wrap: wrap;
-    justify-content: center;
-    margin: 50px auto 100px;
+    // justify-content: center;
+    margin: 50px auto ;
+    flex-basis: calc(100% / 5 - 20px);
 
     // display: grid;
     //     max-width: 1140px;
@@ -29,7 +32,7 @@ a {
     margin: 10px auto;
     // width: 200px;
     // min-height: 100%;
-    // flex-basis: calc(100% / 5 - 20px);
+    flex-basis: calc(100% / 4 - 20px);
     justify-content: center;
     border-width: 1px;
     border-color: gray;
@@ -43,16 +46,19 @@ a:hover{
     cursor: zoom-in;    
 }
 
-// .photo-card{
-//     height: fit-content;
-// }
-
-.gallery__image {
-    height: 100%;
-    width: 100%;
+.photo-card img{
+    width: 300px;
+    height: 300px;
     object-fit: cover;
     transition: transform var(--animation-duration) var(--timing-function);
 }
+
+// .gallery__image {
+//     height: 100%;
+//     width: 100%;
+//     object-fit: cover;
+//     transition: transform var(--animation-duration) var(--timing-function);
+// }
 
 // .img-item {
 //     display: flex;
@@ -63,7 +69,7 @@ a:hover{
 // }
 
 .info {
-    width: 100%;
+    width: 300px;
     height: 60px;
     display: flex;
     flex-direction: row;
@@ -86,7 +92,7 @@ a:hover{
         'Open Sans',
         sans-serif;
     line-height: 1.4;
-    font-size: 16px;
+    font-size: 12px;
 }
 
 button.load-more {
@@ -101,28 +107,29 @@ button.load-more {
     line-height: 1.5;
     font-size: 16px;
 
-    background-color: black;
+    background-color: rgb(31, 153, 161);
     color: white;
     border-color: white;
     border-radius: 20px 20px 20px 20px;
     border-width: 0.1em;
 
     //   position: absolute;
-    transform: translateX(-1000vw);
+    // transform: translateX(-1000vw);
     transition: transform 250ms ease-in-out;
 }
 
 button.load-more:hover {
-    background-color: white;
-    color: black;
-    border-color: black;
+    background-color: rgb(228, 49, 49);
+    color: white;
+    border-color: rgb(228, 49, 49);
     border-width: 1px;
     border-radius: 20px 20px 20px 20px;
+    cursor: pointer;
 }
 
-button.load-more.is-visible {
-    transform: translateX(0);
-}
+// button.load-more.is-visible {
+//     transform: translateX(0);
+// }
 
 
 

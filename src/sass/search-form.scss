@@ -4,8 +4,15 @@
 // }
 
 
-
+// body{
+//   background-color: tomato;
+// }
 .search-form {
+  position: fixed;
+  top: 0%;
+  left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, 0%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -77,6 +84,5 @@ button.search-btn:hover {
   transform: scale(1.03);
   cursor: pointer;
 }
-
 
 
