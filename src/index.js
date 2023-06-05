@@ -13,13 +13,13 @@ export class JsonPixabayApi {
     static API = '36975301-73934ce38cce9a2bf3ac84bc9';
 
     constructor() {
-        this.page = 1;
-        this.per_page = null;
+        this.page = null;       
+        this.q = null
     }
     fetchFromAPi() {
         const searchParams = new URLSearchParams({
          key: JsonPixabayApi.API,
-         q: '',
+         q: this.q,
          image_type: 'photo',              
          page: this.page,
          per_page: 40,         
