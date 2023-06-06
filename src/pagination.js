@@ -17,16 +17,13 @@ const onloadMoreClickFoo = e => {
     
     jsonPixabayApi.page += 1;
     jsonPixabayApi.fetchFromAPi()
-        .then(images => {          
-            
-            if (jsonPixabayApi.page !== images.totalHits) {
-                loadMoreBtn.classList.remove('hidden');
-                galleryListEl.insertAdjacentHTML('beforeend', createImgCard(images.hits));                
-            }
-            else {
-                loadMoreBtn.classList.add('hidden');
-                return Notiflix.Notify.failure("We're sorry, but you've reached the end of search results.");    
-            }            
+        .then(images => { 
+            galleryListEl.insertAdjacentHTML('beforeend', createImgCard(images.hits));
+            loadMoreBtn.classList.remove('hidden');            
+            if (jsonPixabayApi.page === images.totalHits) {
+                return Notiflix.Notify.failure("We're sorry, but you've reached the end of search results.");
+                                
+            }                   
         })
         .catch(err => {
             console.log(err);
@@ -38,17 +35,22 @@ const onSubmitClickFoo = event => {
     jsonPixabayApi.page = 1;   
     jsonPixabayApi.q = event.target.elements.searchQuery.value.trim();
     jsonPixabayApi.fetchFromAPi().then(images => {
-        if (images.totalHits === 0) {
+        console.log(images);
+        if (jsonPixabayApi.page === 0) {
             galleryListEl.innerHTML = ''
             return Notiflix.Notify.failure("Sorry, there are no images matching your search query. Please try again.");{}
             
         }
-        if (images.totalHits === images.hits) {
+        else if (jsonPixabayApi.page !== 1) {
             loadMoreBtn.classList.remove('hidden');
             galleryListEl.innerHTML = createImgCard(images.hits);
         }
-        galleryListEl.innerHTML = createImgCard(images.hits);       
-        
+        else {
+        loadMoreBtn.classList.add('hidden');
+            galleryListEl.innerHTML = createImgCard(images.hits);   
+            
+        }
+                    
     }).catch(err => {
         console.log(err);
     })
