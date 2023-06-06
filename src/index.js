@@ -8,7 +8,7 @@ export class JsonPixabayApi {
         this.page = null;       
         this.q = null
     }
-    fetchFromAPi() {
+    async fetchFromAPi() {
         const searchParams = new URLSearchParams({
          key: JsonPixabayApi.API,
          q: this.q,
@@ -20,7 +20,7 @@ export class JsonPixabayApi {
          
     });
         // return axios.get(`${JsonPixabayApi.URL}?${searchParams}`)
-        return axios.get(`${JsonPixabayApi.URL}?${searchParams}`)
+        return await axios.get(`${JsonPixabayApi.URL}?${searchParams}`)
         //     .then(response => {
         //     if (!response.ok) {
         //         throw new Error(response.status)
