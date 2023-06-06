@@ -64,13 +64,13 @@ loadMoreBtn.addEventListener('click', async (e) =>{
     jsonPixabayApi.page += 1;
     await jsonPixabayApi.fetchFromAPi()
         .then(({ data }) => { 
-            // console.log(data);
+            
             if (data.totalHits < jsonPixabayApi.page * 40) {
                 loadMoreBtn.classList.add('hidden'); 
-                // console.log(data.hits);
+                
                 galleryListEl.insertAdjacentHTML('beforeend', createImgCard(data.hits));
                 gallery.refresh();
-                // console.log(1);
+                
                return Notiflix.Notify.failure("We're sorry, but you've reached the end of search results.");
                                 
             }   
