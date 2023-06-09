@@ -30,7 +30,7 @@ searchForm.addEventListener('submit', async (event) => {
         return Notiflix.Notify.failure("Sorry, there are no images matching your search query. Please try again.");
     }
     jsonPixabayApi.page = 1;   
-    jsonPixabayApi.q = await event.target.elements.searchQuery.value.trim();
+    jsonPixabayApi.q = event.target.elements.searchQuery.value.trim();
     await jsonPixabayApi.fetchFromAPi().then(({ data }) => {
         console.log(data);
         if (data.total === 0) {
