@@ -20,12 +20,18 @@ const jsonPixabayApi = new JsonPixabayApi();
 const searchForm = document.querySelector('.search-form');
 const galleryListEl = document.querySelector('.gallery');
 const loadMoreBtn = document.querySelector('.load-more');
+// const SpinnerDiv = document.querySelector('.sk-folding-cube')
+
 
 
 //on submit click
 
 searchForm.addEventListener('submit', async (event) => {
     event.preventDefault();   
+    //  refs.select.classList.toggle('invisible')
+    //  refs.catInfo.classList.toggle('invisible')
+    //  refs.loader.classList.toggle('invisible')
+    //  refs.error.classList.add('invisible')
     if (event.target.elements.searchQuery.value.trim() === '') {
         return Notiflix.Notify.failure("Sorry, there are no images matching your search query. Please try again.");
     }
@@ -54,7 +60,13 @@ searchForm.addEventListener('submit', async (event) => {
                     
     }).catch(err => {
         console.log(err);
-    })
+    }).finally(() => {
+    setTimeout(() => {
+      refs.select.classList.toggle('invisible')
+      refs.catInfo.classList.toggle('invisible')
+      refs.loader.classList.toggle('invisible')         
+      }, 10000)
+  });
 })
 
 //on loadMore click
