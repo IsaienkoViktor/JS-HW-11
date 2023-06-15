@@ -6,6 +6,34 @@
     <title>Page title</title>
     <link rel="stylesheet" href="./sass/main-css.scss" />
     <style>
+      .loader-wrapper {
+        width: 1156px;
+        display: flex;
+        justify-content: center;
+        margin-top: 100px;
+      }
+      .loader {
+        width: 48px;
+        height: 48px;
+        border: 5px solid;
+        border-color: #ff3d00 transparent;
+        border-radius: 50%;
+        display: inline-block;
+        box-sizing: border-box;
+        animation: rotation 3s linear infinite;
+      }
+
+      @keyframes rotation {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+      .loader.is-hidden {
+        display: none;
+      }
       /* 
 
       .sk-folding-cube {
@@ -95,7 +123,7 @@
     opacity: 0; 
   }
 } */
-
+      /* 
       .loader {
         position: fixed;
         top: 0;
@@ -131,9 +159,9 @@
         to {
           transform: rotate(1turn);
         }
-      }
+      } */
     </style>
-    <script>
+    <!-- <script>
       window.addEventListener('load', () => {
         const loader = document.querySelector('.loader');
 
@@ -143,20 +171,11 @@
           loader.classList.remove('loader');
         });
       });
-    </script>
+    </script> -->
   </head>
   <body>
-    <!-- custom loader 2   -->
-    <!-- <div class="sk-fold">
-        <div class="sk-fold-cube"></div>
-        <div class="sk-fold-cube"></div>
-        <div class="sk-fold-cube"></div>
-        <div class="sk-fold-cube"></div>
-      </div>
-    </div> -->
-    <!-- Custom loader -->
-    <div class="loader"></div>
-    <!-- ❗️❗️❗️ Add partials like so for every page -->
+    <!-- <div class="loader"></div> -->
+
     <form class="search-form" id="search-form">
       <input
         type="text"
@@ -167,16 +186,12 @@
       />
       <button class="search-btn" type="submit">Search</button>
     </form>
-    <!-- <div class="sk-folding-cube">
-      <div class="sk-cube1 sk-cube"></div>
-      <div class="sk-cube2 sk-cube"></div>
-      <div class="sk-cube4 sk-cube"></div>
-      <div class="sk-cube3 sk-cube"></div>
-    </div> -->
+    <div class="loader-wrapper">
+      <span class="loader is-hidden"></span>
+    </div>
     <div class="gallery"></div>
     <button type="button" class="load-more hidden">Load more</button>
-    <!-- <button type="button" class="load-more">Load more</button> -->
-    <!-- <include src="./partials/example.html"></include> -->
+
     <a href="#" class="to-top">
       <i class="click-up"></i>
     </a>
